@@ -82,18 +82,13 @@ Currently, besides authorized DNS server of DNSPod, there are various products i
 
 for more details, see [nginx guide](https://github.com/F-Stack/f-stack/blob/master/doc/F-Stack_Nginx_APP_Guide.md).
 
-#### Redis
+#### Kni
 
-    cd app/redis-3.2.8/
-    make
-    make install
-
-  If KNI is enabled in the configuration file, F-Stack will create a virtual NIC device after started, and set the ipaddr, netmask, mac addr, route table, etc.
+If KNI is enabled in the configuration file, F-Stack will create a virtual NIC device after started, and set the ipaddr, netmask, mac addr, route table, etc.
+But now you have to set route by yourself, it will be fixxed soon.
+If you don't have another management port, you should execute a script like this.
 
     /usr/local/nginx_fstack/sbin/nginx
-
-  But now you have to set route by your self, it will be fixxed soon.
-
     route add -net 0.0.0.0 gw <gateway> dev veth0
     # route add -net ...  # other route rules
 
